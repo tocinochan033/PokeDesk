@@ -14,7 +14,9 @@ namespace PokeDesk
         public string Name { get; set; }
         public Sprites Sprites { get; set; }
         public string Description { get; set; }
+        public List<string> Types { get; set; } = new List<string>();
     }
+}
 
 
     public class Sprites
@@ -22,4 +24,3 @@ namespace PokeDesk
         [JsonProperty("front_default")]
         public string FrontDefault { get; set; }
     }
-}

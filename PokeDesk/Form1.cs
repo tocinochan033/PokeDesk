@@ -42,7 +42,8 @@ namespace PokeDesk
                 // Actualiza la interfaz con los datos obtenidos
                 pokemonNameLabel.Text = pokemonData.Name;
                 pokemonPictureBox.Load(pokemonData.Sprites.FrontDefault);
-                pokemonDescriptionLabel.Text = pokemonData.Description; // Asumiendo que tienes un Label para la descripción
+                pokemonDescriptionLabel.Text = pokemonData.Description;
+                pokemonTypelabel.Text = string.Join(", ", pokemonData.Types);
             }
             catch (HttpRequestException e)
             {
@@ -61,6 +62,11 @@ namespace PokeDesk
             string pokename = pokemonTextBox.Text.ToString();
             LoadPokemon(pokename);
             pokemonTextBox.Clear();
+        }
+
+        private void pokemonTypelabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
