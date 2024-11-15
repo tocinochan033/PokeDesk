@@ -34,6 +34,7 @@
             this.pokemonTextBox = new System.Windows.Forms.TextBox();
             this.pokemonButton = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pokemonDescriptionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pokemonPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,7 +56,7 @@
             this.pokemonNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pokemonNameLabel.Location = new System.Drawing.Point(88, 317);
             this.pokemonNameLabel.Name = "pokemonNameLabel";
-            this.pokemonNameLabel.Size = new System.Drawing.Size(93, 39);
+            this.pokemonNameLabel.Size = new System.Drawing.Size(89, 38);
             this.pokemonNameLabel.TabIndex = 1;
             this.pokemonNameLabel.Text = "5555";
             // 
@@ -89,10 +90,20 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // pokemonDescriptionLabel
+            // 
+            this.pokemonDescriptionLabel.AutoSize = true;
+            this.pokemonDescriptionLabel.Location = new System.Drawing.Point(748, 101);
+            this.pokemonDescriptionLabel.Name = "pokemonDescriptionLabel";
+            this.pokemonDescriptionLabel.Size = new System.Drawing.Size(44, 16);
+            this.pokemonDescriptionLabel.TabIndex = 5;
+            this.pokemonDescriptionLabel.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1262, 713);
+            this.Controls.Add(this.pokemonDescriptionLabel);
             this.Controls.Add(this.pokemonButton);
             this.Controls.Add(this.pokemonTextBox);
             this.Controls.Add(this.pokemonNameLabel);
@@ -115,6 +126,7 @@
         private System.Windows.Forms.TextBox pokemonTextBox;
         private System.Windows.Forms.Button pokemonButton;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label pokemonDescriptionLabel;
     }
 }
 

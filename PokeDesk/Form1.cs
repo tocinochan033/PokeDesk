@@ -30,42 +30,25 @@ namespace PokeDesk
 
 
         private static readonly HttpClient client = new HttpClient();
-        private async void LoadPokemon(string pokemonName)
+        public async void LoadPokemon(string pokemonName)
         {
-            string url = $"https://pokeapi.co/api/v2/pokemon/{pokemonName.ToLower()}";
+            PokemonDescription pokemonService = new PokemonDescription(client);
+
             try
             {
-                string responseBody = await client.GetStringAsync(url);
+                // Obtén los datos del Pokémon a través de PokemonService
+                Pokemon pokemonData = await pokemonService.GetPokemonAsync(pokemonName);
 
-                // Deserializa el JSON en un objeto de tipo Pokemon
-                Pokemon pokemonData = JsonConvert.DeserializeObject<Pokemon>(responseBody);
-
-                // Obtén el nombre y la URL de la imagen
-                string name = pokemonData.Name;
-                string imageUrl = pokemonData.Sprites.FrontDefault;
-
-                // Actualiza la interfaz
-                pokemonNameLabel.Text = name;
-                pokemonPictureBox.Load(imageUrl);
+                // Actualiza la interfaz con los datos obtenidos
+                pokemonNameLabel.Text = pokemonData.Name;
+                pokemonPictureBox.Load(pokemonData.Sprites.FrontDefault);
+                pokemonDescriptionLabel.Text = pokemonData.Description; // Asumiendo que tienes un Label para la descripción
             }
             catch (HttpRequestException e)
             {
                 MessageBox.Show("Error al obtener los datos del Pokémon: " + e.Message);
             }
         }
-
-        public class Pokemon
-        {
-            public string Name { get; set; }
-            public Sprites Sprites { get; set; }
-        }
-
-        public class Sprites
-        {
-            [JsonProperty("front_default")]
-            public string FrontDefault { get; set; }
-        }
-
 
 
         private void pokemonTextBox_TextChanged(object sender, EventArgs e)
