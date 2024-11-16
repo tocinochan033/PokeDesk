@@ -41,14 +41,25 @@ namespace PokeDesk
                 }
             }
 
-            // Obtener la descripción en español desde el endpoint de especie
+            // Extraer estadísticas base
+            foreach (var stat in pokemonJson["stats"])
+            {
+                string statName = stat["stat"]?["name"]?.ToString();
+                int baseStatValue = stat["base_stat"]?.ToObject<int>() ?? 0;
+                if (statName != null)
+                {
+                    pokemon.BaseStats[statName] = baseStatValue;
+                }
+            }
+
+            // Obtener la descripción desde el endpoint de especie
             string speciesUrl = $"https://pokeapi.co/api/v2/pokemon-species/{pokemonJson["id"]?.ToString()}/";
             string speciesResponse = await client.GetStringAsync(speciesUrl);
             var speciesJson = JObject.Parse(speciesResponse);
 
             foreach (var entry in speciesJson["flavor_text_entries"])
             {
-                if (entry["language"]["name"]?.ToString() == "es")
+                if (entry["language"]["name"]?.ToString() == "en")
                 {
                     pokemon.Description = entry["flavor_text"]?.ToString().Replace("\n", " ").Replace("\f", " ");
                     break;

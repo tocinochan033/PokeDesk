@@ -15,6 +15,7 @@ namespace PokeDesk
         public Sprites Sprites { get; set; }
         public string Description { get; set; }
         public List<string> Types { get; set; } = new List<string>();
+        public Dictionary<string, int> BaseStats { get; set; } = new Dictionary<string, int>();
     }
 }
 

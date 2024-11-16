@@ -36,7 +36,7 @@ namespace PokeDesk
 
             try
             {
-                // Obtén los datos del Pokémon a través de PokemonService
+                // Obtén los datos del Pokémon a través de PokemonDescription
                 Pokemon pokemonData = await pokemonService.GetPokemonAsync(pokemonName);
 
                 // Actualiza la interfaz con los datos obtenidos
@@ -44,6 +44,10 @@ namespace PokeDesk
                 pokemonPictureBox.Load(pokemonData.Sprites.FrontDefault);
                 pokemonDescriptionLabel.Text = pokemonData.Description;
                 pokemonTypelabel.Text = string.Join(", ", pokemonData.Types);
+
+                // Mostrar estadísticas base
+                var statsDisplay = string.Join(Environment.NewLine, pokemonData.BaseStats.Select(stat => $"{stat.Key}: {stat.Value}"));
+                pokemonStatsTextBox.Text = statsDisplay;
             }
             catch (HttpRequestException e)
             {
