@@ -46,7 +46,7 @@ namespace PokeDesk
                 pokemonTypelabel.Text = string.Join(", ", pokemonData.Types);
 
                 // Mostrar estadísticas base
-                var statsDisplay = string.Join(Environment.NewLine, pokemonData.BaseStats.Select(stat => $"{stat.Key}: {stat.Value}"));
+                var statsDisplay = string.Join(Environment.NewLine, pokemonData.BaseStats.Select(stat => $" - {stat.Key}: {stat.Value} "));
                 pokemonStatsTextBox.Text = statsDisplay;
             }
             catch (HttpRequestException e)

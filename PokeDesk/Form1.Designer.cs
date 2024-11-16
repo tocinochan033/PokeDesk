@@ -114,9 +114,9 @@
             // 
             // pokemonStatsTextBox
             // 
-            this.pokemonStatsTextBox.Location = new System.Drawing.Point(751, 155);
+            this.pokemonStatsTextBox.Location = new System.Drawing.Point(721, 156);
             this.pokemonStatsTextBox.Name = "pokemonStatsTextBox";
-            this.pokemonStatsTextBox.Size = new System.Drawing.Size(418, 22);
+            this.pokemonStatsTextBox.Size = new System.Drawing.Size(516, 22);
             this.pokemonStatsTextBox.TabIndex = 7;
             this.pokemonStatsTextBox.Text = "stat base";
             // 
